@@ -1,0 +1,199 @@
+{
+  "sliderUsers": [
+    {
+      "id": 1,
+      "name": "username"
+    },
+    {
+      "id": 2,
+      "name": "username"
+    },
+    {
+      "id": 3,
+      "name": "username"
+    },
+    {
+      "id": 4,
+      "name": "username"
+    },
+    {
+      "id": 5,
+      "name": "username"
+    },
+    {
+      "id": 6,
+      "name": "username"
+    },
+    {
+      "id": 7,
+      "name": "username"
+    },
+    {
+      "id": 8,
+      "name": "username"
+    },
+    {
+      "id": 9,
+      "name": "username"
+    },
+    {
+      "id": 10,
+      "name": "username"
+    },
+    {
+      "id": 11,
+      "name": "username"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "name": "username",
+      "location": "Baku, Azerbaijan",
+      "likes": "1023",
+      "descriptions": "Hi, I use a Instagram Clone",
+      "posted": "6"
+    },
+    {
+      "id": 2,
+      "name": "username",
+      "location": "Baku, Azerbaijan",
+      "likes": "513",
+      "descriptions": "Hi, I use a Instagram Clone",
+      "posted": "3"
+    },
+    {
+      "id": 3,
+      "name": "username",
+      "location": "Baku, Azerbaijan",
+      "likes": "6003",
+      "descriptions": "Hi, I use a Instagram Clone",
+      "posted": "1"
+    },
+    {
+      "id": 4,
+      "name": "username",
+      "location": "Baku, Azerbaijan",
+      "likes": "1823",
+      "descriptions": "Hi, I use a Instagram Clone",
+      "posted": "8"
+    },
+    {
+      "id": 5,
+      "name": "username",
+      "location": "Baku, Azerbaijan",
+      "likes": "4883",
+      "descriptions": "Hi, I use a Instagram Clone",
+      "posted": "20"
+    },
+    {
+      "id": 6,
+      "name": "username",
+      "location": "Baku, Azerbaijan",
+      "likes": "233",
+      "descriptions": "Hi, I use a Instagram Clone",
+      "posted": "4"
+    },
+    {
+      "id": 7,
+      "name": "username",
+      "location": "Baku, Azerbaijan",
+      "likes": "555",
+      "descriptions": "Hi, I use a Instagram Clone",
+      "posted": "1"
+    },
+    {
+      "id": 8,
+      "name": "username",
+      "location": "Baku, Azerbaijan",
+      "likes": "6006",
+      "descriptions": "Hi, I use a Instagram Clone",
+      "posted": "3"
+    },
+    {
+      "id": 9,
+      "name": "username",
+      "location": "Baku, Azerbaijan",
+      "likes": "7789",
+      "descriptions": "Hi, I use a Instagram Clone",
+      "posted": "9"
+    },
+    {
+      "id": 10,
+      "name": "username",
+      "location": "Baku, Azerbaijan",
+      "likes": "15",
+      "descriptions": "Hi, I use a Instagram Clone",
+      "posted": "10"
+    }
+  ],
+  "suggestions": [
+    {
+      "id": 1,
+      "name": "username"
+    },
+    {
+      "id": 2,
+      "name": "username"
+    },
+    {
+      "id": 3,
+      "name": "username"
+    },
+    {
+      "id": 4,
+      "name": "username"
+    },
+    {
+      "id": 5,
+      "name": "username"
+    }
+  ],
+  "search": [
+    {
+      "name": "Smith"
+    },
+    {
+      "name": "Johnson"
+    },
+    {
+      "name": "Williams"
+    },
+    {
+      "name": "Brown"
+    },
+    {
+      "name": "Jones"
+    },
+    {
+      "name": "Miller"
+    },
+    {
+      "name": "Bailey"
+    },
+    {
+      "name": "Fitzgerald"
+    },
+    {
+      "name": "Doyle"
+    },
+    {
+      "name": "Morton"
+    },
+    {
+      "name": "Parsons"
+    },
+    {
+      "name": "Frank"
+    },
+    {
+      "name": "Hancock"
+    },
+    {
+      "name": "Mckenzie"
+    },
+    {
+      "name": "Serrano"
+    }
+  ]
+}
