@@ -40,7 +40,8 @@ const Activity = () => {
                 <div className="activity_activityBox">
                     <h4>Today</h4>
                     <ul className="activity_activityBox_ul">
-                        {rendered}
+                        {loadingStatus === 'error' ? <h5>Error</h5> :
+                            loadingStatus === 'loading' ? <h5>Loading</h5> : rendered}
                     </ul>
                     <div className="activityLine"/>
                     <h4>This week</h4>
