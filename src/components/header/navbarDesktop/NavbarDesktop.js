@@ -10,10 +10,10 @@ import {HiOutlineSwitchHorizontal} from 'react-icons/hi';
 
 import '../../../styles/styles.scss';
 import '../../../bootstrap_style/bootstrap-grid.min.css';
+import '../../../swiperjs/swiper-bundle.min.css';
 
 import Search from "../search/Search";
 import Activity from "../../main/activity/Activity";
-import Home from "../../main/home/Home";
 
 const NavbarDesktop = () => {
     const [addDropdown, setAddDropdown] = useState(false);

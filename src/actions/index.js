@@ -32,6 +32,45 @@ export const suggestionFetchingError = () => {
 
 //----------------
 
+//Slider Users
+export const sliderFetching = () => {
+    return{
+        type: 'SLIDER_FETCHING'
+    }
+}
+export const sliderFetched = (slider) => {
+    return{
+        type: 'SLIDER_FETCHED',
+        payload: slider
+    }
+}
+export const sliderFetchingError = () => {
+    return{
+        type: 'SLIDER_FETCHING_ERROR'
+    }
+}
+//-----------
+
+//Post
+export const postFetching = () => {
+    return{
+        type: 'POST_FETCHING'
+    }
+}
+export const postFetched = (post) => {
+    return{
+        type: 'POST_FETCHED',
+        payload: post
+    }
+}
+export const postFetchingError = () => {
+    return{
+        type: 'POST_FETCHING_ERROR'
+    }
+}
+//--------
+
+
 export const loadingFetching = () => {
     return{
         type: 'USERS_FETCHING'

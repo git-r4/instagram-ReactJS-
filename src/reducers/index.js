@@ -38,6 +38,40 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 loadingStatus: 'error'
             }
+        //Slider Users
+        case "SLIDER_FETCHING":
+            return{
+                ...state,
+                loadingStatus: 'loading'
+            }
+        case "SLIDER_FETCHED":
+            return{
+                ...state,
+                sliderUsers: action.payload,
+                loadingStatus: 'idle'
+            }
+        case "SLIDER_FETCHING_ERROR":
+            return{
+                ...state,
+                loadingStatus: 'error'
+            }
+        //Post
+        case "POST_FETCHING":
+            return{
+                ...state,
+                loadingStatus: 'loading'
+            }
+        case "POST_FETCHED":
+            return{
+                ...state,
+                posts: action.payload,
+                loadingStatus: 'idle'
+            }
+        case "POST_FETCHING_ERROR":
+            return{
+                ...state,
+                loadingStatus: 'error'
+            }
 
 
 
