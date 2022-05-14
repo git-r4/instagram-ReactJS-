@@ -1,5 +1,5 @@
 import { useHttp } from "../../../hooks/http.hook";
-import { searchFetched, searchFetchingError } from "../../../actions";
+import { fetchSearch } from "../../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState, useRef } from 'react';
 import { AiOutlineSearch, AiFillCloseCircle } from "react-icons/ai";
@@ -12,14 +12,11 @@ const Search = () => {
 
     const searchBox = useRef(null);
     const dispatch = useDispatch();
-    const { search, loadingStatus } = useSelector(state => state);
+    const { search, searchLoadingStatus } = useSelector(state => state.searchReducer);
     const { request } = useHttp();
 
     useEffect(() => {
-
-        request("http://localhost:3001/search")
-            .then(data => dispatch(searchFetched(data)))
-            .catch((e) => dispatch(searchFetchingError(e)))
+        dispatch(fetchSearch(request));
 
         let onClickSearch = (e) => {
             if(!searchBox.current.contains(e.target)){
@@ -70,7 +67,7 @@ const Search = () => {
             <div style={onSearchClick ? {display: 'block'} : {display: 'none', transition: '500ms'}} className="searchBox_searchResult">
                 { searchUser === "" ?
                     <div className="searchBox_searchResult_noResult">No recent searches.</div> :
-                    loadingStatus === 'error' ?
+                    searchLoadingStatus === 'error' ?
                         <h5>Error</h5> :
                         <div style={{marginTop: '11px'}}>{element}</div>
                 }

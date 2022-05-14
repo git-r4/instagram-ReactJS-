@@ -1,14 +1,8 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { sliderFetched,
-        sliderFetching,
-        sliderFetchingError,
-        postFetched,
-        postFetching,
-        postFetchingError,
-        suggestionFetched,
-        suggestionFetching,
-        suggestionFetchingError} from "../../../actions";
+import { fetchSlider,
+         fetchPost,
+         fetchSuggestions} from "../../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHttp } from "../../../hooks/http.hook";
 import { useEffect } from 'react';
@@ -19,25 +13,18 @@ import { IoPaperPlaneOutline } from 'react-icons/io5';
 import { Link } from "react-router-dom";
 
 const Home = () => {
-    const { sliderUsers, posts, suggestions, loadingStatus } = useSelector(state => state);
+    const { suggestions, suggestionLoadingStatus } = useSelector(state => state.suggestionReducer);
+    const { sliderUsers, sliderLoadingStatus } = useSelector(state => state.sliderReducer);
+    const { posts, postLoadingStatus } = useSelector(state => state.postReducer);
     const { request } = useHttp();
     const dispatch = useDispatch();
 
     useEffect(() => {
+        dispatch(fetchSlider(request));
 
-        dispatch(sliderFetching());
-        request("http://localhost:3001/sliderUsers")
-            .then(data => dispatch(sliderFetched(data)))
-            .catch((e) => dispatch(sliderFetchingError(e)))
+        dispatch(fetchPost(request));
 
-        dispatch(postFetching())
-        request("http://localhost:3001/posts")
-            .then(data => dispatch(postFetched(data)))
-            .catch((e) => dispatch(postFetchingError(e)))
-
-        request("http://localhost:3001/suggestions")
-            .then(data => dispatch(suggestionFetched(data)))
-            .catch((e) => dispatch(suggestionFetchingError(e)))
+        dispatch(fetchSuggestions(request));
     }, [])
 
     const renderSliderUsers = (arr) => {
@@ -129,8 +116,8 @@ const Home = () => {
                             <div className="firstHomeColumn_storyBox">
                                 <div className="firstHomeColumn_storyBox_swiperjs">
                                     {
-                                        loadingStatus === 'error' ? <h5>Error</h5> :
-                                            loadingStatus === 'loading' ? <h5>Loading</h5> :
+                                        sliderLoadingStatus === 'error' ? <h5>Error</h5> :
+                                            sliderLoadingStatus === 'loading' ? <h5>Loading</h5> :
                                                 <Swiper
                                                     breakpoints={{
                                                         1024: {
@@ -155,8 +142,8 @@ const Home = () => {
                             </div>
                             <div className="firstHomeColumn_postsBox">
                                 {
-                                    loadingStatus === 'error' ? <h5>Error</h5> :
-                                        loadingStatus === 'loading' ? <h5>Loading</h5> :
+                                    postLoadingStatus === 'error' ? <h5>Error</h5> :
+                                        postLoadingStatus === 'loading' ? <h5>Loading</h5> :
                                             <ul>
                                                 {renderedPost}
                                             </ul>

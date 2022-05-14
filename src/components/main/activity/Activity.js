@@ -1,22 +1,17 @@
 import {
-    suggestionFetching,
-    suggestionFetched,
-    suggestionFetchingError
+    fetchSuggestions
 } from '../../../actions';
 import { useDispatch, useSelector } from "react-redux";
 import { useHttp } from "../../../hooks/http.hook";
 import {useEffect} from 'react';
 
 const Activity = () => {
-    const { suggestions, loadingStatus } = useSelector(state => state);
+    const { suggestions, suggestionLoadingStatus } = useSelector(state => state.suggestionReducer);
     const dispatch = useDispatch();
     const { request } = useHttp();
 
     useEffect(() => {
-        dispatch(suggestionFetching());
-        request("http://localhost:3001/suggestions")
-            .then(data => dispatch(suggestionFetched(data)))
-            .catch((e) => dispatch(suggestionFetchingError(e)))
+        dispatch(fetchSuggestions(request));
 
     }, []);
 
@@ -40,8 +35,8 @@ const Activity = () => {
                 <div className="activity_activityBox">
                     <h4>Today</h4>
                     <ul className="activity_activityBox_ul">
-                        {loadingStatus === 'error' ? <h5>Error</h5> :
-                            loadingStatus === 'loading' ? <h5>Loading</h5> : rendered}
+                        {suggestionLoadingStatus === 'error' ? <h5>Error</h5> :
+                            suggestionLoadingStatus === 'loading' ? <h5>Loading</h5> : rendered}
                     </ul>
                     <div className="activityLine"/>
                     <h4>This week</h4>

@@ -1,4 +1,9 @@
 //Search
+export const fetchSearch = (request) => (dispatch) => {
+    request("http://localhost:3001/search")
+        .then(data => dispatch(searchFetched(data)))
+        .catch((e) => dispatch(searchFetchingError(e)))
+}
 export const searchFetched = (search) => {
     return{
         type: "SEARCH_FETCHED",
@@ -13,6 +18,12 @@ export const searchFetchingError = () => {
 //------------------------
 
 //Suggestions
+export const fetchSuggestions = (request) => (dispatch) => {
+    dispatch(suggestionFetching());
+    request("http://localhost:3001/suggestions")
+        .then(data => dispatch(suggestionFetched(data)))
+        .catch((e) => dispatch(suggestionFetchingError(e)));
+}
 export const suggestionFetching = () => {
     return{
         type: 'SUGGESTION_FETCHING'
@@ -33,6 +44,12 @@ export const suggestionFetchingError = () => {
 //----------------
 
 //Slider Users
+export const fetchSlider = (request) => (dispatch) => {
+    dispatch(sliderFetching());
+    request("http://localhost:3001/sliderUsers")
+        .then(data => dispatch(sliderFetched(data)))
+        .catch((e) => dispatch(sliderFetchingError(e)))
+}
 export const sliderFetching = () => {
     return{
         type: 'SLIDER_FETCHING'
@@ -52,6 +69,12 @@ export const sliderFetchingError = () => {
 //-----------
 
 //Post
+export const fetchPost = (request) => (dispatch) => {
+    dispatch(postFetching())
+    request("http://localhost:3001/posts")
+        .then(data => dispatch(postFetched(data)))
+        .catch((e) => dispatch(postFetchingError(e)))
+}
 export const postFetching = () => {
     return{
         type: 'POST_FETCHING'
@@ -69,21 +92,3 @@ export const postFetchingError = () => {
     }
 }
 //--------
-
-
-export const loadingFetching = () => {
-    return{
-        type: 'USERS_FETCHING'
-    }
-}
-export const loadingFetched = (users) => {
-    return{
-        type: 'USERS_FETCHED',
-        payload: users
-    }
-}
-export const loadingFetchingError = () => {
-    return{
-        type: 'USERS_FETCHING_ERROR'
-    }
-}
