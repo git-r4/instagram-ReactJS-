@@ -1,5 +1,8 @@
 body{
   background-color: #fafafa;
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
 ul{
   list-style: none;
@@ -254,7 +257,7 @@ h1, h2, h3, h4, h5, h6, p{
         }
 
         .placeForAccount{
-          transform: translateX(-13.5%);
+          transform: translateX(-14%);
           width: 230px;
         }
 
@@ -272,7 +275,7 @@ h1, h2, h3, h4, h5, h6, p{
           border: 1px solid rgba(0, 0, 0, 0.1);
         }
         &_accountDetailsBox{
-          transform: translateX(-75%);
+          transform: translateX(-90%);
           width: 230px;
           height: 193px;
           padding: 0;
@@ -354,7 +357,6 @@ h1, h2, h3, h4, h5, h6, p{
 .firstHomeColumn{
 
   &_storyBox{
-    width: 100%;
     height: 120px;
     background-color: #fff;
     border-radius: 3px;
@@ -401,10 +403,10 @@ h1, h2, h3, h4, h5, h6, p{
   &_postsBox{
 
     ul{
+      width: 100%;
       display: grid;
       grid-row-gap: 20px;
       li{
-        width: 100%;
         background-color: #fff;
         border-radius: 3px;
         border: 1px solid rgba(0, 0, 0, 0.05);
@@ -792,3 +794,56 @@ h1, h2, h3, h4, h5, h6, p{
 }
 
 //End Activity Page
+
+//Mobile Navbar
+.navbarMobile{
+  width: 100%;
+  .bottomNav{
+    background-color: #fff;
+    width: 100%;
+    height: 50px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    &_accountBox{
+      width: 100%;
+      display: grid;
+      grid: auto / repeat(5, 1fr);
+      align-items: center;
+      justify-content: center;
+      &_mobileNavlink{
+        margin: 0 auto;
+        font-size: 25px;
+        color: rgba(0, 0, 0, 0.8);
+      }
+      .active{
+        color: black;
+      }
+      div{
+        display: flex;
+        justify-content: center;
+        a{
+          .imgBoxAccount{
+            border-radius: 50%;
+            padding: 1px;
+            img{
+              width: 25px;
+              height: 25px;
+              border-radius: 50%;
+            }
+          }
+          .activeMobileAccountIcon{
+            border: 1px solid rgba(0, 0, 0, 0.8);
+          }
+        }
+      }
+
+    }
+  }
+
+}

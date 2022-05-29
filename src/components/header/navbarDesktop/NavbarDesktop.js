@@ -8,12 +8,16 @@ import {AiOutlineHome, AiFillHome, AiFillHeart, AiOutlineHeart, AiOutlineSetting
 import {BiUserCircle, BiBookmark} from 'react-icons/bi';
 import {HiOutlineSwitchHorizontal} from 'react-icons/hi';
 
+import NavbarMobile from "../navbarMobile/NavbarMobile";
+
 import '../../../styles/styles.scss';
 import '../../../bootstrap_style/bootstrap-grid.min.css';
 import '../../../swiperjs/swiper-bundle.min.css';
+import '../../../styles/responsive.scss';
 
 import Search from "../search/Search";
 import Activity from "../../main/activity/Activity";
+import Account from "../../main/account/Account";
 
 const NavbarDesktop = () => {
     const [addDropdown, setAddDropdown] = useState(false);
@@ -187,8 +191,12 @@ const NavbarDesktop = () => {
                     </Row>
                 </Container>
             </div>
+            <div className="navbarMobileBox">
+                <NavbarMobile />
+            </div>
             <Routes>
                 {renderComponents}
+                <Route path="/account" element={<Account />} />
             </Routes>
         </BrowserRouter>
     )

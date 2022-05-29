@@ -1,0 +1,25 @@
+@media screen and (min-width: 995px){
+  .navbarMobileBox{
+    display: none;
+  }
+}
+@media screen and (max-width: 995px){
+  .navbarDesktop{
+    display: none;
+  }
+  /*.topMarginForPage{
+    margin: 20px;
+  }*/
+  .secondColHomePageD-none{
+    display: none;
+  }
+}
+@media screen and (max-width: 575px){
+  .colAndContainerForMobile{
+    padding: 0;
+    margin: 0;
+  }
+  .postBox_postedContent{
+    height: 500px !important;
+  }
+}

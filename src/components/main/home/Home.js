@@ -109,9 +109,9 @@ const Home = () => {
 
     return(
         <div className="homePage topMarginForPage">
-            <Container>
-                <Row>
-                    <Col lg={8} sm={12}>
+            <Container className="colAndContainerForMobile">
+                <Row style={{width: '100%', margin: '0'}}>
+                    <Col lg={8} sm={12} className="colAndContainerForMobile">
                         <div className="firstHomeColumn">
                             <div className="firstHomeColumn_storyBox">
                                 <div className="firstHomeColumn_storyBox_swiperjs">
@@ -125,11 +125,11 @@ const Home = () => {
                                                         },
                                                         // when window width is >= 768px
                                                         768: {
-                                                            slidesPerView: 6,
+                                                            slidesPerView: 7,
                                                         },
                                                         // when window width is >= 640px
                                                         640: {
-                                                            slidesPerView: 6,
+                                                            slidesPerView: 5,
                                                         },
                                                         540: {
                                                             slidesPerView: 5
@@ -151,7 +151,7 @@ const Home = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col lg={4} >
+                    <Col lg={4} className="secondColHomePageD-none">
                         <div className="secondHomeColumn">
                             <div className="secondHomeColumn_accountBox">
                                 <div>
