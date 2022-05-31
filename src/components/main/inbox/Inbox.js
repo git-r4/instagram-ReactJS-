@@ -5,8 +5,8 @@ import { IoPaperPlaneOutline } from 'react-icons/io5';
 
 const Inbox = () => {
     return(
-        <div className="topMarginForPage inboxFullHeight">
-            <Container className="inboxContainer">
+        <div className="topMarginForPage inboxFullHeight inboxTopMarginForPageZero">
+            <Container className="inboxContainer colAndContainerForMobile">
                 <div className="inbox">
                     <div className="inbox_firstInboxColumn">
                         <div className="inbox_firstInboxColumn_selectUser">

@@ -2,16 +2,37 @@
   .navbarMobileBox{
     display: none;
   }
+  .headerAllPage{
+    display: none;
+  }
 }
 @media screen and (max-width: 995px){
   .navbarDesktop{
     display: none;
   }
-  /*.topMarginForPage{
-    margin: 20px;
-  }*/
   .secondColHomePageD-none{
     display: none;
+  }
+  .dnForSliderStoryBtn{
+    display: none !important;
+  }
+  .inboxTopMarginForPageZero{
+    margin: 0;
+  }
+  .inboxFullHeight{
+    height: 100vh;
+  }
+  .inbox{
+    grid: auto / 1fr;
+    .verticalLineInbox{
+      display: none;
+    }
+    &_secondInboxColumn{
+      display: none;
+    }
+  }
+  .activity{
+    margin-top: 50px;
   }
 }
 @media screen and (max-width: 575px){

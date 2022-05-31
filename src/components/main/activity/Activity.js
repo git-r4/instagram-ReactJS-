@@ -4,6 +4,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useHttp } from "../../../hooks/http.hook";
 import {useEffect} from 'react';
+import {Link} from "react-router-dom";
+import {RiMessengerLine} from "react-icons/ri";
 
 const Activity = () => {
     const { suggestions, suggestionLoadingStatus } = useSelector(state => state.suggestionReducer);
@@ -31,6 +33,11 @@ const Activity = () => {
 
     return(
         <div className="">
+            <div className="headerAllPage">
+                <div className="headerAllPage_activity">
+                    <h3>Activity</h3>
+                </div>
+            </div>
             <div className="activity">
                 <div className="activity_activityBox">
                     <h4>Today</h4>

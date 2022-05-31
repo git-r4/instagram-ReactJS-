@@ -5,12 +5,14 @@ import { fetchSlider,
          fetchSuggestions} from "../../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHttp } from "../../../hooks/http.hook";
-import { useEffect } from 'react';
+import {useEffect, useRef} from 'react';
 import { BsBookmark } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { FaRegComment } from 'react-icons/fa';
 import { IoPaperPlaneOutline } from 'react-icons/io5';
 import { Link } from "react-router-dom";
+import {IoIosArrowDroprightCircle, IoIosArrowDropleftCircle} from "react-icons/io";
+import {RiMessengerLine} from 'react-icons/ri';
 
 const Home = () => {
     const { suggestions, suggestionLoadingStatus } = useSelector(state => state.suggestionReducer);
@@ -30,7 +32,7 @@ const Home = () => {
     const renderSliderUsers = (arr) => {
         return arr.map(({id, name}) => {
             return(
-                <SwiperSlide key={id}>
+                /*<SwiperSlide key={id}>
                     <div className="swiperUserBox">
                         <div className="swiperUserBox_line">
                             <div className="swiperUserBox_line_img">
@@ -40,11 +42,25 @@ const Home = () => {
 
                         <p>{name}</p>
                     </div>
-                </SwiperSlide>
+                </SwiperSlide>*/
+                <div key={id}>
+                    <div className="sliderUser">
+                        <div className="sliderUser_line">
+                            <div className="sliderUser_line_img">
+                                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="user" />
+                            </div>
+                        </div>
+
+                        <p>{name}</p>
+                    </div>
+                </div>
             )
         })
     }
     const renderedSliderUsers = renderSliderUsers(sliderUsers);
+
+
+
 
     const renderPosts = (arr) => {
         return arr.map(({id, name, location, likes, descriptions, posted}) => {
@@ -107,18 +123,42 @@ const Home = () => {
     }
     const renderedSuggestions = renderSuggestion(suggestions);
 
+    const scrollStory = document.querySelector('.firstHomeColumn_storyBox_sliderBox');
+
+    const nextSlide = () => {
+        scrollStory.scrollLeft += 300;
+        console.log(scrollStory.scrollLeft);
+    }
+    const goBackSlide = () => {
+        scrollStory.scrollLeft -= 300;
+        console.log(scrollStory.scrollLeft);
+    }
+
     return(
         <div className="homePage topMarginForPage">
+            <div className="headerAllPage">
+                <div className="headerAllPage_home">
+                    <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="instagram" />
+                    <Link to="/inbox"
+                          className="headerAllPage_home_inbox">
+                        <RiMessengerLine className="headerAllPage_home_inbox_icon"/>
+                    </Link>
+                </div>
+            </div>
             <Container className="colAndContainerForMobile">
                 <Row style={{width: '100%', margin: '0'}}>
                     <Col lg={8} sm={12} className="colAndContainerForMobile">
                         <div className="firstHomeColumn">
                             <div className="firstHomeColumn_storyBox">
-                                <div className="firstHomeColumn_storyBox_swiperjs">
+                                <button className="buttonNextSlide dnForSliderStoryBtn"
+                                        onClick={() => nextSlide()}><IoIosArrowDroprightCircle className="slideIcon"/></button>
+                                <button className="buttonGoBackSlide dnForSliderStoryBtn"
+                                        onClick={() => goBackSlide()}><IoIosArrowDropleftCircle className="slideIcon"/></button>
+                                <div className="firstHomeColumn_storyBox_sliderBox">
                                     {
                                         sliderLoadingStatus === 'error' ? <h5>Error</h5> :
-                                            sliderLoadingStatus === 'loading' ? <h5>Loading</h5> :
-                                                <Swiper
+                                            sliderLoadingStatus === 'loading' ? <h5>Loading</h5> : renderedSliderUsers
+                                                /*<Swiper
                                                     breakpoints={{
                                                         1024: {
                                                             slidesPerView: 8,
@@ -136,7 +176,7 @@ const Home = () => {
                                                         }
                                                     }}>
                                                     {renderedSliderUsers}
-                                                </Swiper>
+                                                </Swiper>*/
                                     }
                                 </div>
                             </div>

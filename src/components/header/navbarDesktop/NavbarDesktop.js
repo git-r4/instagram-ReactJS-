@@ -17,6 +17,7 @@ import '../../../styles/responsive.scss';
 
 import Search from "../search/Search";
 import Activity from "../../main/activity/Activity";
+import Inbox from "../../main/inbox/Inbox";
 import Account from "../../main/account/Account";
 
 const NavbarDesktop = () => {
@@ -197,6 +198,7 @@ const NavbarDesktop = () => {
             <Routes>
                 {renderComponents}
                 <Route path="/account" element={<Account />} />
+                <Route path="/inbox" element={<Inbox />} />
             </Routes>
         </BrowserRouter>
     )
