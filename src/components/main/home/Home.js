@@ -21,12 +21,62 @@ const Home = () => {
     const { request } = useHttp();
     const dispatch = useDispatch();
 
+    const scrollStory = document.querySelector('.firstHomeColumn_storyBox_sliderBox');
+
+    const nextSlide = () => {
+        scrollStory.scrollLeft += 300;
+        console.log(scrollStory.scrollLeft);
+        /*console.log(scrollStory.offsetWidth);
+        console.log(scrollStory.clientWidth);
+        console.log(scrollStory.clientLeft);
+
+        console.log(scrollStory.clientHeight);
+        console.log(scrollStory.offsetHeight);*/
+    }
+
+    /*const nextSlide = () => {
+        if(scrollStory.scrollLeft < 511 && scrollStory.scrollLeft >= 0){
+            scrollStory.scrollLeft += 300;
+            console.log(scrollStory.scrollLeft);
+            document.querySelector('.buttonNextSlide').style.display = 'block';
+            console.log('block');
+        }else {
+            document.querySelector('.buttonNextSlide').style.display = 'none';
+            console.log('none');
+        }
+    }*/
+    const goBackSlide = () => {
+        scrollStory.scrollLeft -= 300;
+        console.log(scrollStory.scrollLeft);
+    }
+
     useEffect(() => {
         dispatch(fetchSlider(request));
 
         dispatch(fetchPost(request));
 
         dispatch(fetchSuggestions(request));
+
+        let listenScrollStory = document.querySelector('.firstHomeColumn_storyBox_sliderBox');
+
+        const ruleForScrollStory = (event) => {
+            if(event.target.scrollLeft >= 511){
+                document.querySelector('.buttonNextSlide').style.display = 'none';
+            }else{
+                document.querySelector('.buttonNextSlide').style.display = 'block';
+            }
+
+            if(event.target.scrollLeft <= 0){
+                document.querySelector('.buttonGoBackSlide').style.display = 'none';
+            }else{
+                document.querySelector('.buttonGoBackSlide').style.display = 'block';
+            }
+        }
+
+        listenScrollStory.addEventListener('scroll', (event) => ruleForScrollStory(event));
+
+        return () => listenScrollStory.removeEventListener('scroll', (event) => ruleForScrollStory(event));
+
     }, [])
 
     const renderSliderUsers = (arr) => {
@@ -122,17 +172,6 @@ const Home = () => {
         })
     }
     const renderedSuggestions = renderSuggestion(suggestions);
-
-    const scrollStory = document.querySelector('.firstHomeColumn_storyBox_sliderBox');
-
-    const nextSlide = () => {
-        scrollStory.scrollLeft += 300;
-        console.log(scrollStory.scrollLeft);
-    }
-    const goBackSlide = () => {
-        scrollStory.scrollLeft -= 300;
-        console.log(scrollStory.scrollLeft);
-    }
 
     return(
         <div className="homePage topMarginForPage">
